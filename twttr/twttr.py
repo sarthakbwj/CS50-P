@@ -1,12 +1,15 @@
-# Ask for user input and store in a variable.
-answer = input("Input: ")
-# Print Output in one line
-print("Output: ", end="")
-# Iterate over the string using loops.
-for letters in answer:
-# Check for vowels.
-    if not letters.lower() in ["a","e","i","o","u"]:
-# print letters without vowels on the same line.
-        print(letters, end="")
-# print a newline to end cleanly.
-print()
+def main():
+    message = input("Input: ")
+    message_without_vowels = shorten(message)
+    print("Output: " + message_without_vowels)
+
+def shorten(words):
+    words_without_vowels = ""
+    for letters in words:
+        if not letters.lower() in ['a','e','i','o','u']:
+            words_without_vowels += letters
+    return words_without_vowels
+
+
+if __name__ == "__main__":
+    main()
