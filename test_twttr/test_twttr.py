@@ -3,6 +3,7 @@ from twttr import shorten
 def main():
     test_lower_upper_cases()
     test_numbers()
+    test_punctuations()
 
 def test_lower_upper_cases():
     assert shorten('twitter') == 'twttr'
