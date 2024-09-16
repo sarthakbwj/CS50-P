@@ -8,10 +8,10 @@ def main():
 def test_lower_upper_cases():
     assert shorten('twitter') == 'twttr'
     assert shorten('TWITTER') == 'TWTTR'
-    assert shorten('TwiTteR') == 'TeTtR'
+    assert shorten('TwiTteR') == 'TwTtR'
 
 def test_numbers():
-    assert shorten("1234") == 1234
+    assert shorten("1234") == "1234"
 
 def test_punctuations():
     assert shorten("!?.,") == "!?.,"
