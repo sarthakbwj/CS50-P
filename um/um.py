@@ -1,11 +1,10 @@
 import re
-import sys
 
 def main():
     print(count(input("Text: ")))
 
 def count(s):
-    um_list =  re.findall(r"\bW*um\W*", s, re.IGNORECASE)
+    um_list =  re.findall(r"\b\W*um\W*", s, re.IGNORECASE)
     return len(um_list)
 
 
