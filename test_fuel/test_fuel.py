@@ -7,9 +7,13 @@ def main():
     test_value()
 
 def test_correct_input():
-    assert convert("1/4") == 25 and guage(25) == "25%"
-    assert convert("1/100") == 1 and guage(1) == "E"
-    assert convert("99/100") == 99 and guage(99) == "F"
+    assert convert("1/4") == 25
+    assert guage(25) == "25%"
+    assert convert("1/100") == 1
+    assert guage(1) == "E"
+    assert convert("99/100") == 99
+    assert guage(99) == "F"
+
 
 def test_zero_division():
     with pytest.raises(ZeroDivisionError):
