@@ -14,18 +14,15 @@ def main():
 
     output = []
     for row in data:
-        house = select_house(row["characteristic"])
-        grade = select_grade(row["birthdate"])
-        output.append({"name": row["name"], "house": house, "grade": grade})
-    print(output)
+        stream = select_stream(row["subject"])  # Changed from 'subject' to 'stream'
+        year = select_birthyear(row["birthyear"])  # Changed from 'birthyear' to 'year'
+        output.append({"name": row["name"], "stream": stream, "year": year})  # Correct output keys
 
     with open(sys.argv[2], "w") as file:
-        writer = csv.DictWriter(file, fieldnames = ["name", "house", "grade"])
-        writer.writerow({"name": "name", "house":"house", "grade":"grade"})
+        writer = csv.DictWriter(file, fieldnames=["name", "stream", "year"])  # Correct fieldnames
+        writer.writeheader()  # Writes correct headers
         for row in output:
-            writer.writerow({"name": row["name"], "house": row["house"], "grade": row["grade"]})
-
-
+            writer.writerow(row)
 
 def check_correct_args():
     if len(sys.argv) < 3:
@@ -35,24 +32,20 @@ def check_correct_args():
     if ".csv" not in sys.argv[1] or ".csv" not in sys.argv[2]:
         sys.exit("Not CSV files")
 
-
-def select_house(char):
-    if char in ["courage", "loyalty", "adventure"]:
-        return "Gryffindor"
-    elif char in ["dedication", "patience", "honesty"]:
-        return "Hufflepuff"
-    elif char in ["wisdom", "creativity", "perfectionism"]:
-        return "Ravenclaw"
-    elif char in ["ambition", "competitive", "leadership"]:
-        return "Slytherin"
+def select_stream(sub):
+    if sub in ["Mathematics", "Computer Science", "Astronomy", "Engineering", "Earth Science", "Physics", "Chemistry"]:
+        return "Science"
+    elif sub in ["Insurance", "Finance", "Banking", "Company Secretary", "Accountant"]:
+        return "Commerce"
+    elif sub in ["History", "Geography", "Linguistics", "Sociology", "Philosophy"]:
+        return "Arts"
     else:
-        return "No House"
+        return "No Stream"
 
-def select_grade(year):
+def select_birthyear(year):
     age = 2024 - int(year)
-    grade = age - 5
-    return  "Grade " + str(grade)
-
+    grade = age - 18
+    return "Year " + str(grade)
 
 if __name__ == "__main__":
     main()

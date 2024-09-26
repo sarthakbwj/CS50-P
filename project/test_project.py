@@ -1,4 +1,4 @@
-from project import check_correct_args, select_house, select_grade
+from project import check_correct_args, select_stream, select_birthyear
 import pytest
 
 def test_check_correct_args():
@@ -6,13 +6,12 @@ def test_check_correct_args():
         check_correct_args()
 
 
-def test_select_house():
-    assert select_house ("courage") == "Gryffindor"
-    assert select_house ("dedication") == "Hufflepuff"
-    assert select_house("wisdom") == "Ravenclaw"
-    assert select_house ("ambition") == "Slytherin"
+def test_select_stream():
+    assert select_stream("Computer Science") == "Science"
+    assert select_stream("Finance") == "Commerce"
+    assert select_stream("History") == "Arts"
 
 
-def test_select_grade():
-    assert select_grade(2005) == "Grade 14"
-    assert select_grade(2015) == "Grade 4"
+def test_select_year():
+    assert select_birthyear(2005) == "Year 1"
+    assert select_birthyear(2002) == "Year 4"
