@@ -14,13 +14,13 @@ def main():
 
     output = []
     for row in data:
-        stream = select_stream(row["subject"])  # Changed from 'subject' to 'stream'
-        year = select_birthyear(row["birthyear"])  # Changed from 'birthyear' to 'year'
-        output.append({"name": row["name"], "stream": stream, "year": year})  # Correct output keys
+        stream = select_stream(row["subject"])  
+        year = select_birthyear(row["birthyear"])  
+        output.append({"name": row["name"], "stream": stream, "year": year})  
 
     with open(sys.argv[2], "w") as file:
-        writer = csv.DictWriter(file, fieldnames=["name", "stream", "year"])  # Correct fieldnames
-        writer.writeheader()  # Writes correct headers
+        writer = csv.DictWriter(file, fieldnames=["name", "stream", "year"])  
+        writer.writeheader()  
         for row in output:
             writer.writerow(row)
 
